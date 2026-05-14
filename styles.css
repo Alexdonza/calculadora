@@ -1,5 +1,6 @@
 /* ========================
-   styles.css — Hoja de estilos completa
+   styles.css — Diseño moderno con neumorfismo suave
+   Colores de alto contraste y jerarquía clara
    ======================== */
 
 * {
@@ -10,187 +11,254 @@
 }
 
 body {
-    background: linear-gradient(145deg, #1a2a3a 0%, #0f1a24 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Poppins', sans-serif;
     padding: 1rem;
 }
 
-/* Contenedor principal */
+/* Contenedor principal con efecto glassmorphism + neumorfismo */
 .calculator {
-    background: rgba(20, 28, 35, 0.85);
-    backdrop-filter: blur(2px);
-    border-radius: 2.5rem;
-    padding: 1.5rem;
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 3rem;
+    padding: 1.8rem;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
     width: 100%;
-    max-width: 380px;
-    transition: all 0.2s ease;
+    max-width: 420px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Pantalla */
+/* Pantalla con efecto profundo */
 .display {
-    background: #0a0f14;
-    border-radius: 1.8rem;
-    padding: 1.5rem 1.2rem;
-    margin-bottom: 1.8rem;
+    background: linear-gradient(145deg, #0a0f1c, #05080f);
+    border-radius: 2rem;
+    padding: 1.8rem 1.5rem;
+    margin-bottom: 2rem;
     text-align: right;
-    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        inset 0 4px 12px rgba(0, 0, 0, 0.6),
+        0 1px 0 rgba(255, 255, 255, 0.08);
     word-wrap: break-word;
     word-break: break-word;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .previous-operand {
-    color: #8e9eae;
-    font-size: 1.2rem;
+    color: #a5b4fc;
+    font-size: 1.1rem;
     min-height: 1.8rem;
     letter-spacing: 0.5px;
     font-weight: 400;
+    opacity: 0.85;
+    font-family: 'Inter', monospace;
 }
 
 .current-operand {
-    color: #f0f3f8;
-    font-size: 2.8rem;
-    font-weight: 500;
+    color: #f1f5f9;
+    font-size: 3rem;
+    font-weight: 600;
     line-height: 1.2;
     margin-top: 0.3rem;
     overflow-x: auto;
     white-space: pre-wrap;
+    font-family: 'Inter', monospace;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Grilla de botones */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 14px;
 }
 
-/* Estilo base de botones */
+/* Estilo base de todos los botones - neumorfismo moderno */
 button {
-    background: #1e2a32;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    padding: 1rem 0;
-    border-radius: 2rem;
-    color: #eef2f5;
+    padding: 1.1rem 0;
+    border-radius: 1.8rem;
     cursor: pointer;
-    transition: all 0.15s ease-in-out;
-    box-shadow: 0 4px 0 #0e1419;
-    font-family: inherit;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', system-ui;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    backdrop-filter: blur(4px);
 }
 
+/* Efecto hover moderno */
 button:hover {
-    background: #2f3e48;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 #0e1419;
+    transform: translateY(-3px);
+    filter: brightness(1.08);
 }
 
 button:active {
     transform: translateY(2px);
-    box-shadow: 0 1px 0 #0e1419;
+    filter: brightness(0.95);
 }
 
-/* Botón AC */
+/* ========== BOTÓN AC (Rojo coral moderno) ========== */
 .btn-ac {
-    background: #3a2c2f;
-    color: #ffaa88;
-    box-shadow: 0 4px 0 #291d1f;
+    background: linear-gradient(135deg, #f87171, #dc2626);
+    color: white;
+    box-shadow: 0 6px 0 #991b1b, 0 4px 12px rgba(220, 38, 38, 0.3);
+    font-weight: 700;
+    font-size: 1.3rem;
 }
 
 .btn-ac:hover {
-    background: #533e42;
-    color: #ffc8a8;
+    background: linear-gradient(135deg, #fca5a5, #ef4444);
+    box-shadow: 0 8px 0 #991b1b, 0 6px 16px rgba(220, 38, 38, 0.4);
 }
 
-/* Botón borrar (←) */
+/* ========== BOTÓN BORRAR ← (Ámbar vibrante) ========== */
 .btn-delete {
-    background: #3a2c2f;
-    color: #ffaa88;
-    box-shadow: 0 4px 0 #291d1f;
-    font-size: 1.5rem;
-    font-weight: bold;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1e1b2e;
+    box-shadow: 0 6px 0 #b45309;
+    font-weight: 800;
+    font-size: 1.6rem;
 }
 
 .btn-delete:hover {
-    background: #533e42;
-    color: #ffc8a8;
+    background: linear-gradient(135deg, #fcd34d, #fbbf24);
+    box-shadow: 0 8px 0 #b45309;
 }
 
-/* Operadores */
+/* ========== OPERADORES (Cian/teal moderno) ========== */
 .btn-operator {
-    background: #2f4858;
-    color: #9fd3ff;
+    background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+    color: #0f172a;
+    box-shadow: 0 6px 0 #0f766e;
+    font-weight: 800;
     font-size: 1.8rem;
-    font-weight: 700;
-    box-shadow: 0 4px 0 #1f2e38;
 }
 
 .btn-operator:hover {
-    background: #3f6075;
-    color: #c2e4ff;
+    background: linear-gradient(135deg, #5eead4, #2dd4bf);
+    box-shadow: 0 8px 0 #0f766e;
+    color: #020617;
 }
 
-/* Botón igual */
-.btn-equals {
-    background: #d68b3c;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 4px 0 #8e5624;
-}
-
-.btn-equals:hover {
-    background: #e79e50;
-}
-
-/* Números */
+/* ========== NÚMEROS (Violeta/gris azulado elegante) ========== */
 .btn-number {
-    background: #26333b;
+    background: linear-gradient(135deg, #334155, #1e293b);
+    color: #e2e8f0;
+    box-shadow: 0 6px 0 #0f172a;
+    font-weight: 600;
+    font-size: 1.6rem;
 }
 
 .btn-number:hover {
-    background: #364955;
+    background: linear-gradient(135deg, #475569, #334155);
+    box-shadow: 0 8px 0 #0f172a;
+    color: white;
 }
 
+/* Botón punto decimal */
 .btn-dot {
-    background: #26333b;
+    background: linear-gradient(135deg, #334155, #1e293b);
+    color: #e2e8f0;
     font-weight: 700;
 }
 
+/* ========== BOTÓN IGUAL (Morado/rosa neón) ========== */
+.btn-equals {
+    background: linear-gradient(135deg, #c084fc, #a855f7);
+    color: white;
+    box-shadow: 0 6px 0 #6b21a5;
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+.btn-equals:hover {
+    background: linear-gradient(135deg, #d8b4fe, #c084fc);
+    box-shadow: 0 8px 0 #6b21a5;
+    color: #f3e8ff;
+}
+
+/* Efecto de brillo sutil en botones al hover */
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.8rem;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.2), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+button:hover::after {
+    opacity: 0.6;
+}
+
 /* Responsive */
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     .calculator {
-        padding: 1rem;
+        padding: 1.2rem;
+        max-width: 360px;
     }
+    .buttons {
+        gap: 10px;
+    }
+    button {
+        font-size: 1.3rem;
+        padding: 0.9rem 0;
+        border-radius: 1.4rem;
+    }
+    .btn-operator {
+        font-size: 1.6rem;
+    }
+    .btn-equals {
+        font-size: 1.6rem;
+    }
+    .current-operand {
+        font-size: 2.4rem;
+    }
+    .previous-operand {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
     .buttons {
         gap: 8px;
     }
     button {
-        font-size: 1.4rem;
-        padding: 0.9rem 0;
-        border-radius: 1.6rem;
-    }
-    .current-operand {
-        font-size: 2.2rem;
-    }
-    .previous-operand {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        padding: 0.7rem 0;
     }
 }
 
-button:active {
-    transition: 0.02s;
+/* Scroll elegante en display */
+.current-operand::-webkit-scrollbar,
+.previous-operand::-webkit-scrollbar {
+    height: 3px;
 }
 
-.previous-operand, .current-operand {
-    overflow-x: auto;
-    white-space: pre-wrap;
-    scrollbar-width: thin;
+.current-operand::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+.current-operand::-webkit-scrollbar-thumb {
+    background: #64748b;
+    border-radius: 10px;
 }
